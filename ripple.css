@@ -1,0 +1,47 @@
+@keyframes ripple-animation  {
+	0% {
+		padding-top: 0;
+		width: 0;
+		height: 0;
+		opacity: 0.4;
+	}
+	25% {
+		opacity: 0.7;
+	}
+	50% {
+		padding-top: 125%;
+		width: 125%;
+	}
+	100% {
+		padding-top: 250%;
+		width: 250%;
+		opacity: 0;
+	}
+}
+
+.ripple {
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+
+	-webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+.ripple section {
+	position: relative;
+	z-index: 1;
+}
+
+.ripple:before {
+	position: absolute;
+	top: var(--ripple-positionY);
+	left: var(--ripple-positionX);
+	z-index: 0;
+	display: block;
+	border-radius: 50%;
+	background-color: #C8C8C8;
+	content: "";
+	opacity: 0;
+	transform: translate(-50%, -50%);
+	animation: var(--ripple-animation);
+}
